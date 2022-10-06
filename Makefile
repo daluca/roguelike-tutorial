@@ -17,7 +17,7 @@ build: wasm/$(PROJECT_NAME).js
 
 .PHONY: cargo-build
 cargo-build:
-	@cargo build -q --release --target wasm32-unknown-unknown
+	@cargo build --release --target wasm32-unknown-unknown
 
 .PHONY: docker-build
 docker-build: wasm/index.html wasm/$(PROJECT_NAME).js
