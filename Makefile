@@ -7,6 +7,7 @@ help:
 	@printf "\thelp\t\tprint this help then exit\n"
 	@printf "\trun\t\trun game on website with docker and WASM\n"
 	@printf "\tbuild\t\tbuild WASM binary\n"
+	@printf "\tupdate\t\tupdate crate versions\n"
 	@printf "\tclean\t\tremove temporary files\n"
 
 .PHONY: run
@@ -15,9 +16,16 @@ run: docker-run
 .PHONY: build
 build: wasm/$(PROJECT_NAME).js
 
+.PHONY: update
+update: cargo-update
+
 .PHONY: cargo-build
 cargo-build:
 	@cargo build --release --target wasm32-unknown-unknown
+
+.PHONY: cargo-update
+cargo-update:
+	@cargo update
 
 .PHONY: docker-build
 docker-build: wasm/index.html wasm/$(PROJECT_NAME).js
