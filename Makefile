@@ -14,7 +14,7 @@ help:
 run: docker-run
 
 .PHONY: build
-build: wasm/$(PROJECT_NAME).js
+build: target/wasm/$(PROJECT_NAME).js
 
 .PHONY: update
 update: cargo-update
@@ -37,21 +37,21 @@ docker-stop:
 
 .PHONY: docker-run
 docker-run: docker-stop build html
-	@docker run -d --rm --name $(PROJECT_NAME) -p 8000:80 -v ${PWD}/wasm:/usr/share/nginx/html nginx:alpine >/dev/null
+	@docker run -d --rm --name $(PROJECT_NAME) -p 8000:80 -v ${PWD}/target/wasm:/usr/share/nginx/html nginx:alpine >/dev/null
 	@echo deployed on http://localhost:8000/
 
 .PHONY: html
-html: wasm/index.html
+html: target/wasm/index.html
 
-wasm/:
-	@mkdir wasm
+target/wasm/:
+	@mkdir target/wasm/
 
-wasm/index.html: wasm/
-	@cp resources/index.html wasm/
+target/wasm/index.html: target/wasm/
+	@cp resources/index.html target/wasm/
 
-wasm/$(PROJECT_NAME).js: cargo-build
-	@wasm-bindgen target/wasm32-unknown-unknown/release/$(PROJECT_NAME).wasm --out-dir wasm --no-modules --no-typescript
+target/wasm/$(PROJECT_NAME).js: cargo-build
+	@wasm-bindgen target/wasm32-unknown-unknown/release/$(PROJECT_NAME).wasm --out-dir target/wasm/ --no-modules --no-typescript
 
 .PHONY: clean
 clean:
-	@rm -rf target/ wasm/
+	@rm -rf target/

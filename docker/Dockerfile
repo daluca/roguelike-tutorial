@@ -1,3 +1,3 @@
 FROM nginx:alpine
 
-COPY wasm/ /usr/share/nginx/html
+COPY target/wasm/ /usr/share/nginx/html
