@@ -147,7 +147,7 @@ impl State {
     }
 }
 
-fn main() -> rltk::BError {
+pub fn main_loop() -> rltk::BError {
     use rltk::RltkBuilder;
     let context = RltkBuilder::simple80x50()
         .with_title("Roguelike Tutorial")
@@ -175,5 +175,7 @@ fn main() -> rltk::BError {
 
 #[wasm_bindgen(start)]
 pub fn run() {
-    main().unwrap();
+    if let Err(e) = main_loop() {
+        eprintln!("Application Error: {e}");
+    }
 }

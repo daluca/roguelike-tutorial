@@ -1,3 +1,8 @@
+use std::process;
+
 fn main() {
-    roguelike_tutorial::run();
+    if let Err(e) = roguelike_tutorial::main_loop() {
+        eprintln!("Application Error: {e}");
+        process::exit(1);
+    }
 }
