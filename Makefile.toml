@@ -16,7 +16,7 @@ dependencies = ["wasm-clean", "format"]
 [tasks.serve]
 install_crate = "simple-http-server"
 command = "simple-http-server"
-args = ["-i", "static/", "--ip", "0.0.0.0", "-p", "8000", "--nocache"]
+args = ["-i", "static/", "--ip", "127.0.0.1", "-p", "8000", "--nocache"]
 dependencies = ["wasm-build"]
 
 [tasks.run]

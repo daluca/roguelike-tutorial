@@ -1,6 +1,6 @@
 [package]
 name = "roguelike-tutorial"
-version = "0.1.0"
+version = "0.3.0"
 authors = ["Lucas Slebos"]
 edition = "2021"
 
@@ -13,5 +13,5 @@ crate-type = ["cdylib", "rlib"]
 rltk = "0.8"
 specs = "0.18"
 specs-derive = "0.4"
-bracket-terminal = "=0.8.5"
+bracket-lib = { git = "https://github.com/amethyst/bracket-lib.git", rev = "851f6f0" }
 wasm-bindgen = "0.2"
