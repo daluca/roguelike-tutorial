@@ -10,8 +10,13 @@ args = ["clean", "--target-dir=static/wasm"]
 [tasks.wasm-build]
 install_crate = "wasm-pack"
 command = "wasm-pack"
-args = ["build", "--dev", "--target=no-modules", "--out-name=roguelike", "--out-dir=static/wasm"]
+args = ["build", "--dev", "--target=no-modules", "--out-name=roguelike", "--out-dir=static/wasm/"]
 dependencies = ["wasm-clean", "format"]
+
+[tasks.wasm-release]
+install_crate = "wasm-pack"
+command = "wasm-pack"
+args = ["build", "--release", "--target=no-modules", "--out-name=roguelike", "--out-dir=static/wasm/"]
 
 [tasks.serve]
 install_crate = "simple-http-server"
@@ -22,3 +27,6 @@ dependencies = ["wasm-build"]
 [tasks.run]
 dependencies = ["serve"]
 watch = { no_git_ignore = false, ignore_pattern = "static/wasm/" }
+
+[tasks.release]
+dependencies = ["wasm-release"]
