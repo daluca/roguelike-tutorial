@@ -30,3 +30,7 @@ watch = { no_git_ignore = false, ignore_pattern = "static/wasm/" }
 
 [tasks.release]
 dependencies = ["wasm-release"]
+
+[tasks.docker-build]
+command = "docker"
+args = ["buildx", "build", "--tag=daluca/roguelike-tutorial:latest", "--file=docker/Dockerfile", "."]
