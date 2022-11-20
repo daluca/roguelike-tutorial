@@ -70,7 +70,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
 
       - name: run Trivy vulnerability scanner
-        if: ${{ github.event_name == 'pull_request' }}
+        # if: ${{ github.event_name == 'pull_request' }}
+        if: false
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: daluca/rogue-tutorial
