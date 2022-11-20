@@ -30,6 +30,12 @@ jobs:
           toolchain: stable
 
       - name: install cargo-make
+        uses: davidB/rust-cargo-make@v1
+
+      - name: install wasm-pack
+        uses: jetli/wasm-pack-action@v0.3.0
+
+      - name: install cargo-make
         uses: actions-rs/cargo@v1
         with:
           command: install
