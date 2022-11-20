@@ -21,8 +21,8 @@ cargo install cargo-watch
 pacman -Sy rust rust-analyzer rust-wasm rust-bindgen cargo-make wasm-pack simple-http-server cargo-watch
 ```
 
-## Run in docker
+## Run using web-server
 
 ```shell
-make run
+cargo make run
 ```
