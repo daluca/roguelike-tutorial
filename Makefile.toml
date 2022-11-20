@@ -21,4 +21,4 @@ dependencies = ["wasm-build"]
 
 [tasks.run]
 dependencies = ["serve"]
-watch = { ignore_pattern = "static/wasm/" }
+watch = { no_git_ignore = false, ignore_pattern = "static/wasm/" }
