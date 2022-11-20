@@ -1,0 +1,19 @@
+[tasks.clean]
+command = "cargo"
+args = ["clean", "--target-dir=static/wasm"]
+
+[tasks.build]
+install_crate = "wasm-pack"
+command = "wasm-pack"
+args = ["build", "--dev", "--target=no-modules", "--out-name=roguelike", "--out-dir=static/wasm"]
+dependencies = ["clean"]
+
+[tasks.serve]
+install_crate = "simple-http-server"
+command = "simple-http-server"
+args = ["-i", "static/", "--ip", "0.0.0.0", "-p", "8000", "--nocache"]
+dependencies = ["build"]
+
+[tasks.run]
+run_task = "serve"
+watch = { ignore_pattern = "static/wasm/" }

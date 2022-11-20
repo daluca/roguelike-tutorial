@@ -1,3 +1,5 @@
+use wasm_bindgen::prelude::*;
+
 use rltk::{GameState, Rltk, VirtualKeyCode, RGB};
 use specs::prelude::*;
 use specs_derive::Component;
@@ -123,4 +125,9 @@ fn main() -> rltk::BError {
     }
 
     rltk::main_loop(context, gs)
+}
+
+#[wasm_bindgen(start)]
+pub fn run() {
+    main().unwrap();
 }

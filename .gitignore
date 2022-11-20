@@ -1,2 +1,3 @@
 /target
-/wasm
+/static/wasm
+/.vscode/settings.json
