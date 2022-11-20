@@ -10,7 +10,7 @@ on:
       - static/
       - Cargo.toml
       - Makefile.toml
-      - github/workflows/github-pages.yml
+      - .github/workflows/github-pages.yml
 
 permissions:
   contents: write
