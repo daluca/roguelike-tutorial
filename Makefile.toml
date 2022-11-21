@@ -12,19 +12,19 @@ command = "cargo"
 args = ["clean", "--target-dir=static/wasm"]
 
 [tasks.wasm-build]
-install_crate = "wasm-pack"
+install_crate = { crate_name = "wasm-pack", binary = "wasm-pack", test_arg = "--help" }
 command = "wasm-pack"
 args = ["build", "--dev", "--target=no-modules", "--out-name=roguelike", "--out-dir=static/wasm/"]
 dependencies = ["wasm-clean", "format"]
 
 [tasks.wasm-release]
-install_crate = "wasm-pack"
+install_crate = { crate_name = "wasm-pack", binary = "wasm-pack", test_arg = "--help" }
 command = "wasm-pack"
 args = ["build", "--release", "--target=no-modules", "--out-name=roguelike", "--out-dir=static/wasm/"]
 dependencies = ["clean", "wasm-clean", "format"]
 
 [tasks.serve]
-install_crate = "simple-http-server"
+install_crate = { crate_name = "simple-http-server", binary = "simple-http-server", test_arg = "--help" }
 command = "simple-http-server"
 args = ["-i", "static/", "--ip", "127.0.0.1", "-p", "8000", "--nocache"]
 dependencies = ["wasm-build"]
@@ -39,4 +39,3 @@ dependencies = ["wasm-release"]
 [tasks.docker-build]
 command = "docker"
 args = ["buildx", "build", "--tag=daluca/roguelike-tutorial:latest", "--file=docker/Dockerfile", "."]
-dependencies = ["wasm-release"]

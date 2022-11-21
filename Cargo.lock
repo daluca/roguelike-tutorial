@@ -2043,7 +2043,7 @@ dependencies = [
 
 [[package]]
 name = "roguelike-tutorial"
-version = "0.4.1"
+version = "0.4.3"
 dependencies = [
  "bracket-lib 0.8.7 (git+https://github.com/amethyst/bracket-lib.git?rev=851f6f0)",
  "rltk",
