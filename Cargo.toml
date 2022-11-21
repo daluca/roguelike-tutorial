@@ -1,6 +1,6 @@
 [package]
 name = "roguelike-tutorial"
-version = "0.4.1"
+version = "0.4.2"
 authors = ["Lucas Slebos"]
 edition = "2021"
 
