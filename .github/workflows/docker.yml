@@ -40,7 +40,6 @@ jobs:
         with:
           images: ${{ github.repository }}
           tags: |
-            type=sha
             type=ref,event=pr
             type=ref,event=branch
             type=semver,pattern={{version}}
