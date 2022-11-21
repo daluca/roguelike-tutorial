@@ -17,23 +17,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-
-      - name: install cargo-make
-        uses: davidB/rust-cargo-make@v1
-
-      - name: install wasm-pack
-        uses: jetli/wasm-pack-action@v0.3.0
-
-      - name: build release
-        uses: actions-rs/cargo@v1
-        with:
-          command: make
-          args: release
-
       - name: Docker metadata
         id: meta
         uses: docker/metadata-action@v4
