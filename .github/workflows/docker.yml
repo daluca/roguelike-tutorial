@@ -69,6 +69,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
 
+      - name: docker images
+        run: docker images
+
       - name: run Trivy vulnerability scanner
         if: ${{ github.event_name == 'pull_request' }}
         uses: aquasecurity/trivy-action@master
